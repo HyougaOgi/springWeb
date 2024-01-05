@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題管理</title>
+</head>
+<body>
+    <h1 class="mt-3">課題一覧</h1>
+    <a href="index.html" th:href="@{/}">home</a>
+    <a href="creationForm.html" th:href="@{/issues/creationForm}">creation</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>概要</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="issue : ${issuesList}">
+                <th th:text="${issue.id}">(id)</th>
+                <td>
+                    <a href="./detail.html" th:href="@{/issues/{issueId}(issueId=${issue.id})}" th:text="${issue.summary}">
+                        (summary)
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    
+</body>
+</html>
