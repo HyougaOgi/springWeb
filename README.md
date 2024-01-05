@@ -1,1 +1,1 @@
-studing spring
+studying spring
